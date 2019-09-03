@@ -1,0 +1,79 @@
+<mat-card class="card-container">
+  <mat-card class="card-container__details">
+    <div @horizontalFadeState class="card-container__details--left">
+      <ul>
+        <li *ngIf="userDetails$ | async; else loading">
+          <img [src]="(userDetails$ | async).profileImage.imageUrl">
+        </li>
+        <ng-template #loading>
+            <mat-spinner class="loading-spinner"></mat-spinner>
+        </ng-template>
+      </ul>
+    </div>
+    <div @horizontalFadeState class="card-container__details--right">
+      <table *ngIf="userDetails$ | async; else loading">
+        <tr>
+          <th> Name </th>
+          <td> {{ (userDetails$ | async).firstName}} {{(userDetails$ | async).lastName}}</td>
+        </tr>
+        <tr>
+          <th> Age </th>
+          <td> {{ getAge() }} </td>
+        </tr>
+        <tr>
+          <th> Date of birth </th>
+          <td> {{(userDetails$ | async).dateOfBirth | date}} </td>
+        </tr>
+        <tr>
+          <th> Residence </th>
+          <td> {{ getResidence() }} </td>
+        </tr>
+        <tr>
+          <th> Postal code </th>
+          <td> {{(userDetails$ | async).address.postalCode}} </td>
+        </tr>
+        <tr>
+          <th> Mother's name </th>
+          <td> {{(userDetails$ | async).motherName}} </td>
+        </tr>
+        <tr>
+          <th> Father's name </th>
+          <td> {{(userDetails$ | async).fatherName}} </td>
+        </tr>
+        <tr class="lastRow">
+          <th> Personal identity number </th>
+          <td> {{(userDetails$ | async).personalIdentityNum}} </td>
+        </tr>
+      </table>
+      <ng-template #loading>
+        <mat-spinner class="loading-spinner"></mat-spinner>
+      </ng-template>
+    </div>
+  </mat-card>
+
+  <mat-card class="card-container__activity">
+    <mat-card-header class="card-container__activity-header">
+      <h1>Activity list</h1>
+      <h4 fxHide.gt-xs>💡 Click on the subject to get more information</h4>
+    </mat-card-header>
+    <mat-list class="card-container__activity-main">
+      <mat-list-item @horizontalFadeState *ngFor="let activity of activityFeedDataSource" fxHide.lt-sm>
+        <mat-chip-list class="mat-chip-list-stacked">
+          <mat-chip selected [color]="activity.matChip.color">
+            {{activity.subject}}
+          </mat-chip>
+        </mat-chip-list>
+        <p>
+          {{activity.grade}} was added at {{activity.subject}} on {{activity.date | date}}
+        </p>
+      </mat-list-item>
+      <mat-list-item *ngFor="let activity of activityFeedDataSource" fxHide.gt-xs>
+        <mat-chip-list class="mat-chip-list-stacked">
+          <mat-chip selected [color]="activity.matChip.color" (click)="openBottomSheet(activity)">
+            {{activity.subject}}
+          </mat-chip>
+        </mat-chip-list>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</mat-card>

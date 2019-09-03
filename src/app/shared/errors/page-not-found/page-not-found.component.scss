@@ -1,0 +1,24 @@
+@import '../../../../variables.scss';
+
+.container {
+    margin-top: 5%;
+    height: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    align-content: center space-around;
+    align-items: center;
+    font-size: $default-font-size;
+
+
+    &-title {
+        position: absolute;
+        z-index: 1;
+    }
+
+    &-img {
+        width: 100%;
+        max-width: 100rem;
+        height: auto;
+    }
+}

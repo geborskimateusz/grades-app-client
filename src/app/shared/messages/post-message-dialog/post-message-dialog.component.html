@@ -1,0 +1,15 @@
+<form [formGroup]="messageForm" (ngSubmit)="sendMessage()" class="form-container">
+    <h1 mat-dialog-title>Receiver: {{data.receiverDetails.name}}</h1>
+    <mat-form-field class="form-group form-container-title">
+        <input matInput class="form-control" formControlName="messageTitle" placeholder="Title:">
+    </mat-form-field>
+    <div mat-dialog-content class="form-container-content">
+        <mat-form-field class="form-group form-container-content-details">
+            <textarea formControlName="messageDetails" class="form-control" type="text" rows="7" matInput placeholder="Leave a message here:"></textarea>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="form-container-actions">
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button cdkFocusInitial [disabled]="!messageForm.valid" type="submit" >Send</button>
+    </div>
+</form>

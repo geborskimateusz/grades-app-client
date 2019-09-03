@@ -1,0 +1,80 @@
+  @import '../../../variables.scss';
+
+  .mat-card {
+    min-height: 120rem;
+  }
+
+  table {
+    max-width: 100rem;
+    width: 80%;
+  }
+
+  tr.detail-row {
+    height: 0;
+  }
+
+  tr.element-row:not(.expanded-row):hover {
+    background: $color-white-darker;
+  }
+
+  tr.element-row:not(.expanded-row):active {
+    background: $color-white;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.8rem;
+  }
+
+  thead {
+    color: rgba($color-black, .54);
+    font-size: 1.2rem;
+  }
+
+  .mat-header-cell {
+    font-weight: bold;
+  }
+
+  .mat-table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+
+  .avgElement {
+    padding-left: 1.5rem;
+  }
+
+  .forCol {
+    padding-left: 22%;
+  }
+
+  .dateCol {
+    padding-left: 10%;
+  }
+
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+  }
+
+  #gradeHorizontal {
+    margin-right: 1rem;
+  }
+
+  #gradesDetailTable {
+    margin-left: 5%;
+  }
+
+  #tdGrade {
+    padding-left: 2rem;
+  }
+
+  #grades {
+    padding-left: 5rem;
+  }

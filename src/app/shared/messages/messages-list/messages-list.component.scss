@@ -1,0 +1,88 @@
+.titleNavbar h4 {
+    padding-left: 20px;
+}
+
+.searchContainer {
+    padding-left: 20px;
+}
+
+a ul li {
+    max-height: 20px;
+    padding: 2px;
+}
+
+.msgList {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.msgList .messageBox {
+    cursor: pointer;
+    flex-direction: row;
+    display: flex;
+}
+
+.msgList .messageBox:hover {
+    color: #e83e8c;
+}
+
+.msgList .messageBox #msgCheckbox {
+    padding: 5px 0 0 5px;
+}
+
+.msgList .messageBox #msgCheckbox li {
+    float: left;
+}
+
+.msgList .messageBox #msgDetails {
+    padding: 0 0 0 15px;
+}
+
+.msgList .messageBox #msgDetails li {
+    width: 100%;
+    float: left;
+}
+
+#senderPtag {
+    color: grey;
+    font-weight: bold;
+}
+
+#titlePtag {
+    font-size: 12px;
+    padding-bottom: 20px;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    height: 40px;
+    min-width: 60px;
+    border-radius: 10px;
+    background-color: #389AFF;
+    opacity: 0.7;
+    text-align: center;
+    padding-top: 5px;
+    padding-right: 3px;
+}
+
+.cdk-drag-preview mat-icon {
+    font-size: 30px;
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.msgList.cdk-drop-list-dragging .messageBox:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+@media (max-width: 750px) {
+    .msgList {
+        max-height: 200px;
+    }
+}

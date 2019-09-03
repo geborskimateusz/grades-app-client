@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="titleNavbar">
+        <h4>All in {{messagesContainerTitle}} </h4>
+    </div>
+    <div class="searchContainer">
+        <app-messages-list-topbar #messagesTopBar
+                                  (initMessagesArray)="initMessagesArray()"
+                                  [messagesContainerTitle]="messagesContainerTitle"
+                                  [(searchMessagesArray)]="messagesArray">
+        </app-messages-list-topbar>
+    </div>
+    <form [formGroup]="messagesTopBar.messagesFormGroup">
+
+        <div class="msgList"
+             cdkDropList [cdkDropListData]="messagesArray"
+             infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+             [scrollWindow]="false">
+
+            <div class="messageBox" *ngFor="let message of messagesArray"
+                 (click)="showMessageDetails(message)"
+                 cdkDrag>
+                <ul id="msgCheckbox" *ngIf="message !== null">
+                    <li>
+                        <mat-checkbox (change)="messagesTopBar.onCheckboxChange($event)" [value]="message"></mat-checkbox>
+                    </li>
+                </ul>
+                <ul id="msgDetails" *ngIf="message !== null">
+                    <li *cdkDragPreview>
+                        <mat-icon>inbox</mat-icon>
+                    </li>
+                    <li id="senderPtag">
+                        {{message.owner.firstName}} {{message.owner.lastName}}
+                    </li>
+                    <li id="titlePtag">
+                        {{message.title}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>

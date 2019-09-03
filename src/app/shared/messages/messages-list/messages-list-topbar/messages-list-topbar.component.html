@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-icon matPrefix>search</mat-icon>
+  <input matInput (input)="onSearchChange($event.target.value)">
+</mat-form-field>
+<button mat-mini-fab color="primary" *ngIf="isAnyMessageSelected()"
+        (click)="deleteCheckedMessages()">
+  <mat-icon>delete</mat-icon>
+</button>

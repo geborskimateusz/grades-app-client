@@ -1,0 +1,57 @@
+<mat-card>
+  <table *ngIf="dataSourceIsEmpty() ; else loading" mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef> Subject </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="grades" >
+      <th mat-header-cell *matHeaderCellDef> Grades </th>
+      <td mat-cell *matCellDef="let element" id="grades">
+        <div fxLayout="row">
+          <div *ngFor="let grade of element.grades">
+            <span id="gradeHorizontal">{{grade.letter}}</span>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="average">
+      <th mat-header-cell *matHeaderCellDef> Average </th>
+      <td mat-cell class="avgElement" *matCellDef="let element"> {{ calculateAvg(element.grades) }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+          <table  @verticalFadeState  id="gradesDetailTable" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <thead>
+              <tr>
+                <th scope="col" class="gradeCol">Grade</th>
+                <th scope="col" class="forCol">For</th>
+                <th scope="col" class="dateCol">Date</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let grade of element.grades">
+              <tr>
+                <td id="tdGrade" class="gradeCol">{{grade.letter}}</td>
+                <td class="forCol">{{grade.topic}}</td>
+                <td class="dateCol">{{grade.dateOfIssue | date}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="element-row"
+      [class.expanded-row]="expandedElement === element" (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+  </table>
+  <ng-template #loading>
+    <div class="loading-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</mat-card>

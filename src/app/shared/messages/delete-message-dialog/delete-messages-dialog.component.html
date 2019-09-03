@@ -1,0 +1,15 @@
+<div class="container" *ngIf="!(isLoading$ | async); else loadingSpinner" >
+    <img src="../../../../assets/img/ginger-cat-delete-confirmation.png" width="200px" height="150px">
+    <div mat-dialog-content>
+        <h4 mat-dialog-title>You won't be able to restore old messages, are you sure you want to delete them?</h4>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button cdkFocusInitial (click)="onDelete()">Remove</button>
+    </div>
+</div>
+<ng-template #loadingSpinner>
+    <div class="container">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

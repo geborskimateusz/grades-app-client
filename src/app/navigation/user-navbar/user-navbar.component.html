@@ -1,0 +1,51 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div fxHide.gt-xs>
+      <button mat-icon-button (click)="onToggleSideNav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div fxHide.lt-sm class="user-navbar">
+      <a routerLink="/student/grades" routerLinkActive="active">
+        <ul class="user-navbar__item">
+          <li class="user-navbar__item-part">
+            <mat-icon class="user-navbar__item-icon" >format_list_numbered</mat-icon>
+          </li>
+          <li class="user-navbar__item-part" fxHide.sm>
+            <p class="user-navbar__item-title">Grades</p>
+          </li>
+        </ul>
+      </a>
+      <a  routerLink="/student/info" routerLinkActive="active">
+        <ul class="user-navbar__item">
+          <li class="user-navbar__item-part">
+            <mat-icon class="user-navbar__item-icon">account_circle</mat-icon>
+          </li>
+          <li class="user-navbar__item-part" fxHide.sm>
+            <p class="user-navbar__item-title">Student</p>
+          </li>
+        </ul>
+      </a>
+      <a routerLink="/student/teachers" routerLinkActive="active">
+        <ul class="user-navbar__item">
+          <li class="user-navbar__item-part">
+            <mat-icon class="user-navbar__item-icon">people</mat-icon>
+          </li>
+          <li class="user-navbar__item-part" fxHide.sm>
+            <p class="user-navbar__item-title">Teachers</p>
+          </li>
+        </ul>
+      </a>
+      <a routerLink="/student/messages" routerLinkActive="active">
+        <ul class="user-navbar__item">
+          <li class="user-navbar__item-part">
+            <mat-icon class="user-navbar__item-icon">message</mat-icon>
+          </li>
+          <li class="user-navbar__item-part" fxHide.sm>
+            <p class="user-navbar__item-title">Messages</p>
+          </li>
+        </ul>
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

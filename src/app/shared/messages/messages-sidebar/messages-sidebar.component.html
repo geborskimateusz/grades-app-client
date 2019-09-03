@@ -1,0 +1,17 @@
+<mat-nav-list>
+    <a mat-list-item class="navItem" (click)="onContainerChange(enumMessageContainer.RECEIVED_MESSAGES)">
+        <mat-icon>inbox</mat-icon>
+        <span class="nav-caption">Inbox</span>
+    </a>
+    <a mat-list-item class="navItem" (click)="onContainerChange(enumMessageContainer.SENT_MESSAGES)">
+        <mat-icon>send</mat-icon>
+        <span class="nav-caption">Sent</span>
+    </a>
+    <a mat-list-item class="navItem" (click)="onContainerChange(enumMessageContainer.DELETED_MESSAGES)"
+       cdkDropList
+       [cdkDropListData]="messagesMovedToDelete"
+       (cdkDropListDropped)="dropAndDelete($event)">
+        <mat-icon>delete</mat-icon>
+        <span class="nav-caption">Trash</span>
+    </a>
+</mat-nav-list>

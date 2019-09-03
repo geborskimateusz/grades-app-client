@@ -1,0 +1,16 @@
+<mat-sidenav-container>
+  <mat-sidenav #appSidenav role="navigation">
+    <app-sidenavbar (sidenavTemplateReference)="appSidenav.close()"></app-sidenavbar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-user-navbar (sidenavTemplateReference)="appSidenav.toggle()"></app-user-navbar>
+    <main>
+      <div *ngIf="routesAreNotUsed(); else outlet">
+        <app-user></app-user>
+      </div>
+      <ng-template #outlet>
+        <router-outlet></router-outlet>
+      </ng-template>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

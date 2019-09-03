@@ -1,0 +1,34 @@
+<mat-card class="container">
+    <mat-card @horizontalFadeState *ngFor="let teacher of (dataSource$ | async)" class="container__card">
+        <mat-card-header>
+            <mat-card-title>{{teacher.firstName}} {{teacher.lastName}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="teacher.profileImage.imageUrl">
+        <mat-card-content>
+            <table>
+                <tr>
+                    <th>Phone</th>
+                    <td>{{teacher.contact.phoneNumber}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{teacher.contact.email}}</td>
+                </tr>
+                <tr>
+                    <mat-divider></mat-divider>
+                </tr>
+            </table>
+        </mat-card-content>
+        <mat-card-actions>
+            <table>
+                <tr *ngFor="let subject of teacher.subjects">
+                    <th>
+                        <button mat-button (click)="openPostMessageDialog(subject, teacher)">
+                            <mat-icon>mail_outline</mat-icon>
+                        </button>
+                    </th>
+                    <td>{{subject}}</td>
+            </table>
+        </mat-card-actions>
+    </mat-card>
+</mat-card>

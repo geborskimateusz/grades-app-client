@@ -1,0 +1,14 @@
+mat-icon {
+    font-size: 20px;
+}
+
+@media (max-width: 750px) {
+    mat-nav-list {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mat-list-base .mat-list-item .mat-list-item-ripple, .mat-list-base .mat-list-option .mat-list-item-ripple {
+        justify-content: center;
+    }
+}

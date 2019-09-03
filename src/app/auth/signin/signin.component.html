@@ -1,0 +1,30 @@
+<section>
+  <div class="signin-container" *ngIf="!(isAuth$ | async); else userCard">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #formRef="ngForm" class="signin-container__form">
+      <mat-form-field class="signin-container__form-input">
+        <input matInput placeholder="Username" formControlName="username">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="signin-container__form-input" >
+        <input type="password" matInput placeholder="Password" formControlName="password">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="signin-container__form-input">
+        <mat-select placeholder="Login as" formControlName="role">
+          <mat-option *ngFor="let role of roleCheckboxValues" [value]="role.value">
+            <p [innerHTML]="role.viewValue"></p>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="accent" [disabled]="!loginForm.valid" class="signin-container__form-submit">Login</button>
+    </form>
+  </div>
+  <ng-template #userCard>
+    <div class="user-card-container">
+      <img [src]="(userDetails$ | async).profileImage.imageUrl" alt="Student">
+      <button type="submit" mat-raised-button color="primary" (click)="onUserInfo()">Back to the application</button>
+      <button type="submit" mat-raised-button color="accent" (click)="onLogout()">Logout</button>
+    </div>
+  </ng-template>
+</section>

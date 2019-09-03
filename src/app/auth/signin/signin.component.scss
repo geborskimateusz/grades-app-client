@@ -1,0 +1,65 @@
+@import "../../../variables.scss";
+
+section {
+  min-width: 15rem;
+  width: 28rem;
+  height: 35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $color-white;
+  border-radius: 1.5rem;
+  font-size: $default-font-size;
+  text-transform: uppercase;
+}
+
+button {
+  margin-top: 5%;
+  width: 80%;
+  border-radius: 2.5rem;
+}
+
+h1 {
+  width: 10rem;
+  margin-left: 25%;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.signin-container {
+  margin-left: 8%;
+
+  &__form-input {
+    margin-left: 3rem;
+    width: 70%;
+  }
+
+  &__form-submit {
+    margin-left: 5%;
+  }
+}
+
+.user-card-container {
+  flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+
+  & > img {
+    width: 150px;
+    height: 150px;
+    clip-path: polygon(
+      50% 0%,
+      83% 12%,
+      100% 43%,
+      94% 78%,
+      68% 100%,
+      32% 100%,
+      6% 78%,
+      0% 43%,
+      17% 12%
+    );
+  }
+}

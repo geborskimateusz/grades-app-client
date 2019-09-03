@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+    min-height: 100vh;
+    margin: 0;
+
+    // 1rem=10px
+    font-size: 62.5%;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.mat-simple-snackbar {
+    justify-content: center !important;
+}
+

@@ -1,0 +1,41 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div fxFlex fxLayout fxLayoutAlign="flex-start">
+      <a routerLink="">
+        <mat-icon id="statLogo">trending_up</mat-icon>
+        <h1>my<span id="gLetter">G</span>rades</h1>
+      </a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end">
+      <ul fxLayout fxLayoutGap="10px" *ngIf="isAuth$ | async">
+        <li fxLayout fxHide.xs>
+          <button
+            mat-raised-button
+            color="accent"
+            class="nav-btn"
+            (click)="onLogout()"
+          >
+            Logout
+          </button>
+        </li>
+        <li>
+          <button
+            mat-raised-button
+            class="nav-btn"
+            id="userDetailsBtn"
+            (click)="onUserInfo()"
+          >
+            {{ (userDetails$ | async).firstName }}
+          </button>
+        </li>
+      </ul>
+      <ul fxLayout *ngIf="!(isAuth$ | async)">
+        <li class="nav-btn">
+          <a routerLink="/about">
+            About myGrades
+          </a>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

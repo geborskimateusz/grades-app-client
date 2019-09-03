@@ -1,0 +1,22 @@
+<mat-card class="card-container">
+  <mat-card class="container-inner" cdkDropListGroup>
+    <div class="container-inner-left">
+      <app-messages-sidebar
+        (selectedMessageContainer)="
+          messagesList.setMessageContainerTitle($event)
+        "
+        [messagesContainerTitle]="messagesList.messagesContainerTitle"
+        [(pageNumber)]="messagesList.pageNumber"
+        (initMessagesArray)="messagesList.initMessagesArray($event)"
+      >
+      </app-messages-sidebar>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div class="container-inner-middle">
+      <app-messages-list #messagesList></app-messages-list>
+    </div>
+    <div class="container-inner-right">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-card>
+</mat-card>

@@ -1,0 +1,116 @@
+@import "../../../variables.scss";
+
+a {
+  font-size: 1.5rem;
+  color: $color-white;
+
+  &:hover {
+    color: $color-white-darker;
+    opacity: 0.8;
+  }
+}
+
+h1 {
+  color: $color-white !important;
+  font-size: 3rem;
+  font-family: "Libre Baskerville", serif;
+  z-index: 0;
+}
+
+img {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.nav-btn {
+  border-radius: 2.5rem;
+  padding: 0;
+
+  &:hover {
+    animation: bounce-top 5000ms;
+  }
+}
+
+.mat-toolbar {
+  background-image: linear-gradient(to left, $color-blue-light 0%, $color-blue-dark 100%);
+}
+
+.mat-icon {
+  color: $color-yellow;
+  font-size: 1rem;
+}
+
+#userDetailsBtn {
+  background-color: $color-yellow;
+}
+
+#statLogo {
+  z-index: 1;
+  position: absolute;
+  font-size: 2rem;
+  top: 1rem;
+  left: 7rem;
+}
+
+#gLetter {
+  color: $color-yellow;
+}
+
+@keyframes bounce-top {
+  0% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  40% {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  65% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  82% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  93% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  25%,
+  55%,
+  75%,
+  87% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+}

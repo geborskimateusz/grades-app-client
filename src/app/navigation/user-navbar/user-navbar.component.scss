@@ -1,0 +1,35 @@
+@import '../../../variables.scss';
+
+.user-navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  place-content: center space-around;
+  align-items: center;
+
+  &__item {
+    list-style-type: none;
+    overflow: hidden;
+    margin-right: 2.5rem;
+
+    &-part {
+      float: left;
+    }
+
+    &-icon {
+      margin-right: 0.2rem;
+      margin-top: 2rem;
+    }
+
+    &-title {
+      display: block;
+      text-align: center;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.active {
+  color: $color-pink;
+}
+
