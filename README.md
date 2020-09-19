@@ -1,5 +1,5 @@
-# Grades client 🦊
-## Grades is a student tracker application when you can communicate with Teachers and track student grades
+# Grades client 
+## Grades is a student tracker application where you can communicate with Teachers and track student grades
 ## This project was build with frameworks like Angular and Spring.
 
 
